@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10;
     public Rigidbody2D rb;
 
+    public GroundChecker groundChecker;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,10 +37,13 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && groundChecker.isGrounded)
         {
+
             //rb.AddForce(new Vector2(0,jumpForce));
             rb.AddForce( Vector2.up * jumpForce );
         }
     }
+
+   
 }
