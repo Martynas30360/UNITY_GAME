@@ -28,12 +28,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Horizontal: " + Input.GetAxis("Horizontal"));
+
         if (stats.isDead) return;
 
-       
-        float moveInput = Input.GetAxis("Horizontal");
-       
-        if(moveInput < 0)
+
+        float moveInput = 0;
+        if (Input.GetKey(KeyCode.A)) moveInput = -1;
+        if (Input.GetKey(KeyCode.D)) moveInput = 1;
+
+
+
+        if (moveInput < 0)
         {
             spriteRenderer.flipX = true;
         }
@@ -74,6 +80,8 @@ public class PlayerController : MonoBehaviour
             rb.AddForce( Vector2.up * jumpForce );
         }
     }
+
+    
 
    
 }
