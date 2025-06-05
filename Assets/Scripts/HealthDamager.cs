@@ -10,6 +10,7 @@ public class HealthDamager : MonoBehaviour
     public float damage = 40;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        FindObjectOfType<Counters>().TakeDamage(50f);
 
         GameObject collisionobject = collision.gameObject;
         HandleTakeDamage(collisionobject);
