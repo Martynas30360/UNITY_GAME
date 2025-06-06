@@ -40,5 +40,13 @@ public class Counters : MonoBehaviour
     {
         healthBar.fillAmount = currentHealth / maxHealth;
     }
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        UpdateHealthBar();
+    }
+
 }
 

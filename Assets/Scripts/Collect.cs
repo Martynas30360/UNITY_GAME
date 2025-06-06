@@ -20,6 +20,14 @@ public class Collect : MonoBehaviour
         Inventory inventory = collision.gameObject.GetComponent<Inventory>();
         //TODO destroy colletible
         Destroy(gameObject);
-    }
 
+
+        if (!collision.gameObject.CompareTag("Potion"))
+        {
+            FindObjectOfType<Counters>().Heal(30f);
+            Destroy(gameObject);
+        }
+
+    }
+    
 }
