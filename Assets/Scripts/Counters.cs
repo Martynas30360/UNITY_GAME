@@ -4,7 +4,7 @@ using TMPro;
 
 public class Counters : MonoBehaviour
 {
-    public TMP_Text appleText; // albo TMP_Text, jeœli u¿ywasz TextMeshPro
+    public TMP_Text appleText; 
     public Image healthBar;
 
     private int appleCount = 0;

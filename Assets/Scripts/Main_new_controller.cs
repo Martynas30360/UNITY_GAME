@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Main_new_controller : MonoBehaviour
+{
+
+    public string newGameSceneName = "SampleScene";
+   public void OnNewGame()
+    {
+        Debug.Log($"New Game button clicked");
+        SceneManager.LoadScene(newGameSceneName);
+    }
+
+
+    public void OnExit()
+    {
+        Debug.Log($"Exit button clicked");
+        Application.Quit();
+    }
+
+}

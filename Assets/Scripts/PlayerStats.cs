@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -37,6 +39,13 @@ public class PlayerStats : MonoBehaviour
         {
             anim.SetTrigger("isDead");
             isDead = true;
+            Invoke(nameof(ReloadScene), 2);
         }
     }
+        private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+    }
+
+    
 }
