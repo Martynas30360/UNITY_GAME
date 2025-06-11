@@ -4096,7 +4096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  runSpeed: 7
+  runSpeed: 10
   jumpForce: 300
   rb: {fileID: 0}
   anim: {fileID: 0}
