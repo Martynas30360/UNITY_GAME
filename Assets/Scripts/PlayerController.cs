@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
-    bool isJumping = false;
-    bool isFalling = false;
+    
+    
 
     public GroundChecker groundChecker;
     public PlayerStats stats;

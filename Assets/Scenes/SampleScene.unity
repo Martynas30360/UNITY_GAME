@@ -4854,6 +4854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Village Props - Stump
       objectReference: {fileID: 0}
+    - target: {fileID: 2934803342795420244, guid: 64cddfc21e04a9c408921968b73a68ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
