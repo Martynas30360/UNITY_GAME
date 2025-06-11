@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
+    bool isJumping = false;
+    bool isFalling = false;
 
     public GroundChecker groundChecker;
     public PlayerStats stats;
@@ -78,14 +80,30 @@ public class PlayerController : MonoBehaviour
 
             //rb.AddForce(new Vector2(0,jumpForce));
             rb.AddForce( Vector2.up * jumpForce );
-            anim.SetBool("isJumping",true );
-
+            anim.SetBool("isJumping", true);
+            return;
         }
-        
+
+        if (rb.velocity.y < 0)
+        {
+            anim.SetBool("isFalling", true);
+            
+        }
+
+        if (groundChecker.isGrounded)
+        {
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isFalling", false);
+        }
+
+        //if (groundChecker.isGrounded == true) //&& isJump == false
+        //{
+         //   anim.SetBool("isJumping", false);
+       // }
         
     }
+    //void ShouldCheckJumpEnd () => isJump = false;
     
-
 
 
 }
