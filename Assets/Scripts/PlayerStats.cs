@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
    [SerializeField] private float maxHealth = 100;
    [SerializeField] private float health = 100;
     public Animator anim;
+    public GameObject gameOverPanel;
 
     public bool isDead = false;
 
@@ -24,8 +25,10 @@ public class PlayerStats : MonoBehaviour
         //if healt-demage > maxHealth =>maxHealth
         // if health-damage < 0 => 0
         CheckHealth();
-       
-        
+
+   
+
+
     }
     public void Heal(float heal)
     {
@@ -39,6 +42,7 @@ public class PlayerStats : MonoBehaviour
         {
             anim.SetTrigger("isDead");
             isDead = true;
+            gameOverPanel.SetActive(true);
             Invoke(nameof(ReloadScene), 2);
         }
     }
@@ -47,5 +51,24 @@ public class PlayerStats : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 
-    
+    public IEnumerator FlashSprite(float duration, float flashInterval)
+    {
+        float elapsedTime = 0f;
+        bool isVisible = true;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        while (elapsedTime < duration)
+        {
+            isVisible = !isVisible;
+            sr.enabled = isVisible;
+
+            yield return new WaitForSeconds(flashInterval);
+            elapsedTime += flashInterval;
+        }
+
+        sr.enabled = true; 
+    }
+
+
+
 }

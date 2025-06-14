@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
+
 public class HealthDamager : MonoBehaviour
 {
 
@@ -11,6 +12,7 @@ public class HealthDamager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         FindObjectOfType<Counters>().TakeDamage(30f);
+        FindObjectOfType<PlayerStats>().StartCoroutine(FindObjectOfType<PlayerStats>().FlashSprite(1f, 0.1f));
 
         GameObject collisionobject = collision.gameObject;
         HandleTakeDamage(collisionobject);
@@ -41,4 +43,5 @@ public class HealthDamager : MonoBehaviour
         stats.TakeDamage(damage);
 
     }
+
 }

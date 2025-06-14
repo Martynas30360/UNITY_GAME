@@ -23,11 +23,7 @@ public class Collect : MonoBehaviour
         Destroy(gameObject);
 
 
-        if (!collision.gameObject.CompareTag("Potion"))
-        {
-            FindObjectOfType<Counters>().Heal(30f);
-            Destroy(gameObject);
-        }
+
 
     }
     

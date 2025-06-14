@@ -29,6 +29,8 @@ public class Counters : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth < 0) currentHealth = 0;
         UpdateHealthBar();
+
+
     }
 
     void UpdateAppleText()
